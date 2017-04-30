@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>CC_DS</DataSourceReference>
+      <CommandText>SELECT        Student_Table.Student_ID, Student_Table.First_name, Student_Table.initial, Student_Table.Surname, Course_Table.Course_Name, Period_Table.Period_ID, Instructor_Table.ID_Number, 
+                         Instructor_Table.First_Name AS Expr1, Instructor_Table.Surname AS Expr2, Instructor_Table.Initial AS Expr3, Period_Table.End_Time, Period_Table.Start_Time, Semester_Table.Semester_Year, 
+                         Classroom_table.Class_Number
+FROM            Student_Course INNER JOIN
+                         Student_Table ON Student_Course.Student_ID = Student_Table.Student_ID INNER JOIN
+                         Course_Table ON Student_Course.Course_Number = Course_Table.Course_Number INNER JOIN
+                         [Course&lt;&gt;Period] ON [Course&lt;&gt;Period].Course_Number = Course_Table.Course_Number INNER JOIN
+                         Period_Table ON [Course&lt;&gt;Period].Period_ID = Period_Table.Period_ID INNER JOIN
+                         Instructor_Table ON Course_Table.ID_Number = Instructor_Table.ID_Number INNER JOIN
+                         Semester_Table ON Period_Table.Semester_ID = Semester_Table.Semester_ID INNER JOIN
+                         [Course&lt;&gt;Classroom] ON [Course&lt;&gt;Classroom].Course_Number = Course_Table.Course_Number INNER JOIN
+                         Classroom_table ON [Course&lt;&gt;Classroom].Class_Number = Classroom_table.Class_Number</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Student_ID">
+        <DataField>Student_ID</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Period_ID">
+        <DataField>Period_ID</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="First_name">
+        <DataField>First_name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Class_Number">
+        <DataField>Class_Number</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="initial">
+        <DataField>initial</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Surname">
+        <DataField>Surname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Course_Name">
+        <DataField>Course_Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="End_Time">
+        <DataField>End_Time</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Start_Time">
+        <DataField>Start_Time</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ID_Number">
+        <DataField>ID_Number</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Expr1">
+        <DataField>Expr1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Expr2">
+        <DataField>Expr2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Expr3">
+        <DataField>Expr3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Semester_Year">
+        <DataField>Semester_Year</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

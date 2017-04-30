@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Test_DS">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=172.29.107.199;Initial Catalog=AdventureWorks2016CTP3</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>310d3150-6d6e-4b64-ab2b-e39306938197</DataSourceID>
+</RptDataSource>

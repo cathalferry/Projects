@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/30/2017 9:03:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WINDOWS-SONUDBK"
+  DTS:CreatorName="WINDOWS-SONUDBK\User"
+  DTS:DTSID="{84AA9CE5-02CC-4BFF-AE9E-496DD54DB744}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{BB1B48AC-B8EF-408E-B669-677630C4ACE3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

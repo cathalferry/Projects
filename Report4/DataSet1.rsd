@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>CT_DS</DataSourceReference>
+      <CommandText>SELECT
+  Period_Table.Period_ID
+ ,Classroom_table.Class_Number
+ ,Classroom_Features.Features
+ ,Classroom_Capacity.Max_Capacity
+ ,Period_Table.End_Time
+ ,Period_Table.Start_Time
+FROM dbo.Period_Table
+INNER JOIN dbo.Period_Free
+  ON Period_Table.Period_Free = Period_Free.Period_Free
+INNER JOIN dbo.[Course&lt;&gt;Period]
+  ON [Course&lt;&gt;Period].Period_ID = Period_Table.Period_ID
+INNER JOIN dbo.Course_Table
+  ON [Course&lt;&gt;Period].Course_Number = Course_Table.Course_Number
+CROSS JOIN dbo.Classroom_table
+INNER JOIN dbo.Classroom_Features
+  ON Classroom_table.Features_ID = Classroom_Features.Features_ID
+INNER JOIN dbo.Classroom_Capacity
+  ON Classroom_table.Capacity_ID = Classroom_Capacity.Capacity_ID
+INNER JOIN dbo.[Course&lt;&gt;Classroom]
+  ON [Course&lt;&gt;Classroom].Class_Number = Classroom_table.Class_Number
+    AND [Course&lt;&gt;Classroom].Course_Number = Course_Table.Course_Number
+INNER JOIN dbo.Classroom_Free
+  ON Classroom_table.Class_Status = Classroom_Free.Class_Status
+  WHERE Classroom_table.Class_Status =1 AND Period_Table.Period_Free =1;
+</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Period_ID">
+        <DataField>Period_ID</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Class_Number">
+        <DataField>Class_Number</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Features">
+        <DataField>Features</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Max_Capacity">
+        <DataField>Max_Capacity</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="End_Time">
+        <DataField>End_Time</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Start_Time">
+        <DataField>Start_Time</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
